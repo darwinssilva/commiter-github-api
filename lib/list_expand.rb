@@ -17,7 +17,7 @@ class ListExpand
 
   def expand(url_column)
     @list = @list.map do |result|
-      second_depth = JSON.parse(Request.new(result[url_column]).request)
+      second_depth = JSON.parse(RequestUrl.new(result[url_column]).request)
       result.merge(second_depth)
     end
   end
